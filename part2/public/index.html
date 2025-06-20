@@ -69,7 +69,11 @@
         try {
           const res = await fetch('/api/dogs/all');
           this.dogs = await res.json();
-          
+
+          for (const book of this.books) {
+          book.userTags = [];
+          await this.loadBookTags(book);
+        }
         } catch (err) {
           error.value = 'Failed to load dogs';
         }
