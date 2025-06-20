@@ -64,17 +64,12 @@
             })
         },
         get_dog() {
-          fetch('https://dog.ceo/api/breeds/image/random')
-            .then(res => res.json())
-            .then(data => {
-              this.dog_img = data.message;
-            })
-
+            this.load();
             alert('Image changed');
         }
       },
       mounted() {
-        this.get_dog();
+        this.load();
       }
     }).mount('#app')
   </script>
