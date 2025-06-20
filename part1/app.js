@@ -97,7 +97,6 @@ app.get('/api/dogs', async (req, res) => {
     `;
 
     const [dogs] = await db.query(sql);
-    console.log(dogs)
     res.json(dogs);
   }
   catch {
