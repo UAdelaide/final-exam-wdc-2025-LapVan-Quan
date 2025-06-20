@@ -6,3 +6,5 @@ const db = await mysql.createConnection({
     password: '',
     database: 'DogWalkService'
 });
+
+
