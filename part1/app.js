@@ -39,13 +39,16 @@ let db;
 
 
     // Insert data if table is empty
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
+    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM users');
     if (rows[0].count === 0) {
       await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
+      INSERT INTO Users (username, email, password_hash, role)
+      VALUES
+      ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+      ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+      ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+      ('jaden', 'jaden@gmail.com', 'hashed321', 'walker'),
+      ('john', 'john@adelaide.com', 'hashed654', 'owner');
       `);
     }
   } catch (err) {
