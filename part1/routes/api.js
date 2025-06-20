@@ -12,12 +12,13 @@ router.get('/dogs', async (req, res) => {
     const sql = `
     SELECT d.name AS dog_name, d.size, u.username AS owner_username
     FROM Dogs AS d JOIN User AS u ON d.owner_id = u.user_id
-    `
+    `;
+
     const [dogs] = await db.query(sql);
-    res.json(dogs)
+    res.json(dogs);
   }
   catch {
-
+    res.status(500).json({ error: 'Failed to retrieve dogs' });
   }
 
 })
