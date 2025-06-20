@@ -115,6 +115,9 @@ app.get('/api/walkrequests/open', async (req, res) => {
       WHERE wr.status = 'open';
     `;
 
+    const [requests] = await db.query(sql);
+    
+
   }
 
 
