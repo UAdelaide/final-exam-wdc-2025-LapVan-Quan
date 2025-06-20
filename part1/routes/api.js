@@ -20,7 +20,6 @@ router.get('/dogs', async (req, res) => {
   catch {
     res.status(500).json({ error: 'Request failed'});
   }
-
-})
+});
 
 module.exports = router;
