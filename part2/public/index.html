@@ -61,13 +61,14 @@
         return {
           message: 'Welcome to the Dog Walking Service!',
           username: '',
-          password: ''
+          password: '',
+          dogs: []
         };
       },
       async mounted() {
         try {
           const res = await fetch('/api/dogs/all');
-          dogs.value = await res.json();
+          this.dogs = await res.json();
         } catch (err) {
           error.value = 'Failed to load dogs';
         }
