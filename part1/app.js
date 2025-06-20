@@ -90,29 +90,32 @@ app.use('/api', apiRouter);
 
 app.get('/api/dogs', async (req, res) => {
     try {
-      const sql = `
-      SELECT d.name AS dog_name, d.size, u.username AS owner_username
-      FROM Dogs AS d
-      JOIN Users AS u ON d.owner_id = u.user_id;
-      `;
+        const sql = `
+        SELECT d.name AS dog_name, d.size, u.username AS owner_username
+        FROM Dogs AS d
+        JOIN Users AS u ON d.owner_id = u.user_id;
+        `;
 
-      const [dogs] = await db.query(sql);
-      console.log(dogs)
-      res.json(dogs);
+        const [dogs] = await db.query(sql);
+        console.log(dogs)
+        res.json(dogs);
     }
     catch {
-      res.status(500).json({ error: 'Request failed'});
+        res.status(500).json({ error: 'Request failed'});
     }
 });
 
 app.get('/api/walkrequests/open', async(req, res) => {
-    const sql = `
-    SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
-    FROM WalkRequests wr
-    JOIN Dogs d ON wr.dog_id = d.dog_id
-    JOIN Users u ON d.owner_id = u.user_id
-    WHERE wr.status = 'open';
-    `;
+    try {
+        const sql = `
+        SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
+        FROM WalkRequests wr
+        JOIN Dogs d ON wr.dog_id = d.dog_id
+        JOIN Users u ON d.owner_id = u.user_id
+        WHERE wr.status = 'open';
+        `;
+
+    }
 
 
 });
