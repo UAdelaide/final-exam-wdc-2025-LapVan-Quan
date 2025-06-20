@@ -95,7 +95,7 @@ app.get('/api/dogs', async (req, res) => {
       FROM Dogs AS d JOIN Users AS u ON d.owner_id = u.user_id;
       `;
 
-      const [dogs] = await db.execute(sql);
+      const [dogs] = await db.query(sql);
       console.log(dogs)
       res.json(dogs);
     }
