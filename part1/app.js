@@ -152,6 +152,7 @@ app.get('/api/walkers/summary', async (req, res) => {
     WHERE u.role = 'walker'
     GROUP BY u.user_id;
     `;
+
     const [summary] = await db.query(sql);
     res.json(summary);
   } catch (err) {
