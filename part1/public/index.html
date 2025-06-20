@@ -55,7 +55,7 @@
         }
       },
       methods: {
-        getDog() {
+        get_dog() {
           fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(data => {
@@ -64,7 +64,7 @@
         }
       },
       mounted() {
-        this.getDog();
+        this.get_dog();
       }
     }).mount('#app')
   </script>
