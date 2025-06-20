@@ -84,9 +84,10 @@ let db;
     const [rows4] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (rows4[0].count === 0) {
       await db.execute(`
-      INSERT IGNORE INTO WalkRatings (request_id, walker_id, owner_id, rating) VALUES
-(1, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'alice123'), 5),
-(2, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'carol123'), 4);
+      INSERT IGNORE INTO WalkRatings (request_id, walker_id, owner_id, rating)
+      VALUES
+      (1, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'alice123'), 5),
+      (2, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'carol123'), 4);
       `);
     }
   } catch (err) {
