@@ -91,10 +91,10 @@ app.use('/api', apiRouter);
 app.get('/api/dogs', async (req, res) => {
   try {
     const sql = `
-        SELECT d.name AS dog_name, d.size, u.username AS owner_username
-        FROM Dogs AS d
-        JOIN Users AS u ON d.owner_id = u.user_id;
-        `;
+      SELECT d.name AS dog_name, d.size, u.username AS owner_username
+      FROM Dogs AS d
+      JOIN Users AS u ON d.owner_id = u.user_id;
+      `;
 
     const [dogs] = await db.query(sql);
     console.log(dogs)
