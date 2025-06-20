@@ -37,8 +37,6 @@ let db;
       database: 'DogWalkService'
     });
 
-    // Create a table if it doesn't exist
-   
 
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
