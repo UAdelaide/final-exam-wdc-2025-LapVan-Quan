@@ -118,10 +118,8 @@ app.get('/api/walkrequests/open', async (req, res) => {
     res.json(requests);
   }
   catch {
-
+    res.status(500).json({ error: 'Request failed' });
   }
-
-
 });
 
 module.exports = app;
