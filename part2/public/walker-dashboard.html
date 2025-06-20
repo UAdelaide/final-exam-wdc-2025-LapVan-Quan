@@ -95,7 +95,7 @@
           try {
             const res = await fetch('/api/users/me');
             if (!res.ok) throw new Error('Failed to load walker id');
-            user = await res.json();
+            user.value = await res.json();
           } catch (err) {
             error.value = err.message;
           }
