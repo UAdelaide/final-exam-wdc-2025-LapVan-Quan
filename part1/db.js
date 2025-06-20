@@ -4,5 +4,5 @@ const db = await mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'testdb'
+    database: 'DogWalkService'
 });
