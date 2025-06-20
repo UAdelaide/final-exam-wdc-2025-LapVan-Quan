@@ -43,7 +43,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = ref(0);
+        let user = 0;
 
         async function loadWalkRequests() {
           try {
