@@ -7,5 +7,5 @@ const db = await mysql.createConnection({
     database: 'DogWalkService'
 });
 
-modul
+module.exports = db;
 
