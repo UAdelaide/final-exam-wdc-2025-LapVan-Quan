@@ -6,6 +6,8 @@ const db = require('../models/db');
 router.get('/', async (req, res) => {
   const user_id = req.session.user;
 
+  
+
   try {
     const [rows] = await db.query(`
       SELECT d.dog_id, d.name AS dog_name, u.username AS owner_name
