@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('part1/db.js')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -7,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dogs', (req, res) => {
-  
+
 })
 
 module.exports = router;
