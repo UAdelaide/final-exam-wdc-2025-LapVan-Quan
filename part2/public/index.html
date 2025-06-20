@@ -72,8 +72,8 @@
 
           for (const dog of this.dogs) {
             const res1 = await fetch('https://dog.ceo/api/breeds/image/random');
-            const photo = await photo.json().message;
-            dog.photo = await photo.json().message;
+            const photo = await res1.json();
+            dog.photo = photo.message
           }
 
           console.log(this.dogs)
