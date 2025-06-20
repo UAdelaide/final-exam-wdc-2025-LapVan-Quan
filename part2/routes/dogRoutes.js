@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// GET all dogs of a user 
+// GET all dogs of a user
 router.get('/', async (req, res) => {
+  const user_
+
   try {
     const [rows] = await db.query('SELECT user_id, username, email, role FROM Users');
     res.json(rows);
