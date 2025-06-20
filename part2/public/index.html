@@ -74,6 +74,8 @@
             const photo = await fetch('https://dog.ceo/api/breeds/image/random')
             dog.photo = await photo.json().message;
           }
+
+          console.log(this.dogs)
         } catch (err) {
           error.value = 'Failed to load dogs';
         }
