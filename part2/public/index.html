@@ -69,6 +69,7 @@
         try {
           const res = await fetch('/api/dogs/all');
           this.dogs = await res.json();
+          
         } catch (err) {
           error.value = 'Failed to load dogs';
         }
