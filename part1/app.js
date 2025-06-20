@@ -88,7 +88,8 @@ let db;
       VALUES
       (1, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'alice123'), 5),
       (2, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'carol123'), 4),
-      (3, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'carol123'), 4);
+      (3, (SELECT user_id FROM Users WHERE username = 'jaden'), (SELECT user_id FROM Users WHERE username = 'carol123'), 5),
+      ;
       `);
     }
   } catch (err) {
