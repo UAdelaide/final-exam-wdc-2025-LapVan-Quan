@@ -70,11 +70,11 @@
           const res = await fetch('/api/dogs/all');
           this.dogs = await res.json();
 
-          for (const book of this.books) {
+          for (const dog of this.dogs) {
             fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(data => {
-              this.dog = data.message;
+              dog.photo = data.message;
             })
           }
         } catch (err) {
