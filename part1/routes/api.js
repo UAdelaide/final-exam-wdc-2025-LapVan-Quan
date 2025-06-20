@@ -18,7 +18,7 @@ router.get('/dogs', async (req, res) => {
     res.json(dogs);
   }
   catch {
-    res.status(500).json({ error: 'Failed to retrieve dogs' });
+    res.status(500).json({ error: 'Request failed'});
   }
 
 })
