@@ -29,7 +29,7 @@ router.get('/all', async (req, res) => {
   try {
     const [rows] = await db.query(`
       SELECT * FROM Dogs;
-    `, [user_id]);
+    `);
 
     res.json(rows);
   } catch (error) {
