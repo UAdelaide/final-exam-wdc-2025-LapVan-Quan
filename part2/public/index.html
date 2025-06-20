@@ -71,7 +71,11 @@
           this.dogs = await res.json();
 
           for (const book of this.books) {
-            book.photo = '';
+            fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => {
+              this.dog_img = data.message;
+            })
           }
         } catch (err) {
           error.value = 'Failed to load dogs';
