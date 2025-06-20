@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog of the Day</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive;
+      background: linear-gradient(45deg, lime, fuchsia, yellow);
+      animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {filter: hue-rotate(0deg);}
+      100% {filter: hue-rotate(360deg);}
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 20px 40px;
+      margin: 50px;
+      background-color: red;
+      color: white;
+      border-radius: 0;
+    }
+
+    .dog-img {
+      width: 90vw;
+      height: auto;
+      border: 10px dashed pink;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-20px);}
+    }
+
+    /* No focus or hover styles */
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1 style="text-shadow: 3px 3px 6px yellow;">🐶 Welcome to the Random Dog Zone 🐕</h1>
+
+    <!-- Way too many buttons and clutter -->
+    <div>
+      <button @click="getDog">Click for Dog</button>
+      <button disabled>Click Me</button>
+      <button @click="alert('Nothing here')">Mystery Button</button>
+      <button><img src="https://via.placeholder.com/20" alt="icon"></button>
+    </div>
+
+    <!-- No alt text -->
+    <img :src="dogImg" class="dog-img">
+
+    <p style="font-size: 24px; font-style: italic;">Today's dog is a fierce protector named 💥Thunderbark💥. You won't find him. He finds you.</p>
+
+    <form>
+      <label>Name:</label>
+      <input type="text"><br><br>
+      <label>Comment:</label>
+      <textarea rows="4" cols="50"></textarea>
+    </form>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          dogImg: ''
+        }
+      },
+      methods: {
+        getDog() {
+          fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => {
+              this.dogImg = data.message;
+            })
+        }
+      },
+      mounted() {
+        this.getDog();
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
