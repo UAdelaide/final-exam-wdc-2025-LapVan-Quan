@@ -88,7 +88,7 @@ let db;
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 
-router.get('/dogs', async (req, res) => {
+app.get('/api/dogs', async (req, res) => {
     try {
       const sql = `
       SELECT d.name AS dog_name, d.size, u.username AS owner_username
