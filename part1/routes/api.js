@@ -6,6 +6,8 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/dogs', (req, res))
+router.get('/dogs', (req, res) => {
+  
+})
 
 module.exports = router;
