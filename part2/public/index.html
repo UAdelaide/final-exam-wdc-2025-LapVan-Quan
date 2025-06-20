@@ -74,7 +74,7 @@
             fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(data => {
-              this.dog_img = data.message;
+              this.dog = data.message;
             })
           }
         } catch (err) {
