@@ -24,7 +24,7 @@
             <input v-model="form.dog_id" type="number" class="form-control" required>
             <select v-model="selectedRole" id="role" class="form-select">
               <option disabled value="">-- Choose a dog --</option>
-              <option v-for="dog in dogs" :key="role.value" :value="dog">
+              <option v-for="dog in dogs" :key="role.value" :value="dog.dog_id">
                 {{ role.label }}
               </option>
             </select>
