@@ -75,8 +75,6 @@
             const photo = await res1.json();
             dog.photo = photo.message;
           }
-
-          console.log(this.dogs)
         } catch (err) {
           error.value = 'Failed to load dogs';
         }
