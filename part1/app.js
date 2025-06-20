@@ -92,7 +92,8 @@ app.get('/api/dogs', async (req, res) => {
     try {
       const sql = `
       SELECT d.name AS dog_name, d.size, u.username AS owner_username
-      FROM Dogs AS d JOIN Users AS u ON d.owner_id = u.user_id;
+      FROM Dogs AS d
+      JOIN Users AS u ON d.owner_id = u.user_id;
       `;
 
       const [dogs] = await db.query(sql);
@@ -106,12 +107,11 @@ app.get('/api/dogs', async (req, res) => {
 
 app.get('/api/walkrequests/open', async(req, res) => {
     const sql = `
-    SELECT wr.request_id, d.name AS dog_name, wr.requested_time,
-    wr.duration_minutes, wr.location, u.username AS owner_username
-FROM WalkRequests wr
-JOIN Dogs d ON wr.dog_id = d.dog_id
-JOIN Users u ON d.owner_id = u.user_id
-WHERE wr.status = 'open'
+    SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
+    FROM WalkRequests wr
+    JOIN Dogs d ON wr.dog_id = d.dog_id
+    JOIN Users u ON d.owner_id = u.user_id
+    WHERE wr.status = 'open'
     `;
 });
 
