@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/dogs', async (req, res) => {
 
-  const [dogs] = await db.query('SELECT d.name as dog_name, d.size, u.username FROM Dogs AS d JOIN User AS u ON d.owner_id = u.user_id');
+  const [dogs] = await db.query('SELECT d.name AS dog_name, d.size , u.username FROM Dogs AS d JOIN User AS u ON d.owner_id = u.user_id');
 })
 
 module.exports = router;
