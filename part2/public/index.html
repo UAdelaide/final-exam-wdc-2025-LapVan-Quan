@@ -72,7 +72,6 @@
 
           for (const book of this.books) {
             book.photo = '';
-            await this.loadBookTags(book);
           }
         } catch (err) {
           error.value = 'Failed to load dogs';
