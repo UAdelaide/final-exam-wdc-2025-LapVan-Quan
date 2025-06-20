@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dogs', async (req, res) => {
-  const [books] = await db.execute('SELECT * FROM books');
+  const [dogs] = await db.execute('SELECT * FROM Dogs');
 })
 
 module.exports = router;
