@@ -65,7 +65,12 @@
         };
       },
       async mounted() {
-        
+        try {
+          const res = await fetch('/api/dogs/all');
+          dogs.value = await res.json();
+        } catch (err) {
+          error.value = 'Failed to load dogs';
+        }
       },
       methods: {
         async login() {
