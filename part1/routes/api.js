@@ -9,13 +9,16 @@ router.get('/', function(req, res, next) {
 
 router.get('/dogs', async (req, res) => {
   try {
-    
+    const sql = `
+    SELECT d.name AS dog_name, d.size, u.username AS owner_username
+    FROM Dogs AS d JOIN User AS u ON d.owner_id = u.user_id
+    `
+    const [dogs] = await db.query(sql);
+    res.json(dogs)
   }
-  const sql = `
-  SELECT d.name AS dog_name, d.size, u.username AS owner_username
-  FROM Dogs AS d JOIN User AS u ON d.owner_id = u.user_id
-  `
-  const [dogs] = await db.query(sql);
+  catch {
+
+  }
 
 })
 
