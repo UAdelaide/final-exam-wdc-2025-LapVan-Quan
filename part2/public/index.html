@@ -56,9 +56,11 @@
           const data = await res.json();
           if (res.ok) {
             if (data.role == "owner") {
-              window.location.href = 'owner-dashboard.html';
+              console.log(data)
+              //window.location.href = 'owner-dashboard.html';
             }
             else {
+              console.log(data)
               window.location.href = 'walker-dashboard.html';
             }
           } else {
