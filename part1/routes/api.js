@@ -15,6 +15,7 @@ router.get('/dogs', async (req, res) => {
     `;
 
     const [dogs] = await db.execute(sql);
+    console.log(dogs)
     res.json(dogs);
   }
   catch {
