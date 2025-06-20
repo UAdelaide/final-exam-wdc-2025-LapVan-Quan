@@ -90,7 +90,7 @@ let db;
       (2, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'carol123'), 4),
       (3, (SELECT user_id FROM Users WHERE username = 'jaden'), (SELECT user_id FROM Users WHERE username = 'carol123'), 5),
       (4, (SELECT user_id FROM Users WHERE username = 'jaden'), (SELECT user_id FROM Users WHERE username = 'john'), 3),
-      (5, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'carol123'), 4);
+      (5, (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'john'), 3);
       `);
     }
   } catch (err) {
