@@ -71,9 +71,9 @@
           this.dogs = await res.json();
 
           for (const book of this.books) {
-          book.userTags = [];
-          await this.loadBookTags(book);
-        }
+            book.photo = '';
+            await this.loadBookTags(book);
+          }
         } catch (err) {
           error.value = 'Failed to load dogs';
         }
