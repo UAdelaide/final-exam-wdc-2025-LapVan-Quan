@@ -30,12 +30,12 @@
     <h1 style="text-shadow: 3px 3px 6px yellow;">Dog of the day</h1>
 
     <div>
-      <button @click="getDog">Click for Dog</button>
+      <button @click="get_dog">Click for Dog</button>
       <button disabled>Click Me</button>
-      <button @click="getDog">Mystery Button</button>
+      <button @click="get_dog">Mystery Button</button>
     </div>
 
-    <img :src="dogImg" class="dog-img">
+    <img :src="dog_img" class="dog-img">
 
     <p style="font-size: 24px; font-style: italic;">Today's dog is a fierce protector named 💥Thunderbark💥. You won't find him. He finds you.</p>
 
@@ -53,7 +53,7 @@
     createApp({
       data() {
         return {
-          dogImg: ''
+          dog_img: ''
         }
       },
       methods: {
@@ -61,7 +61,7 @@
           fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
             .then(data => {
-              this.dogImg = data.message;
+              this.dog_img = data.message;
             })
         }
       },
