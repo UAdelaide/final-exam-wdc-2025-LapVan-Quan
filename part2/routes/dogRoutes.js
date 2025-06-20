@@ -5,8 +5,10 @@ const db = require('../models/db');
 // GET all walk requests (for walkers to view)
 router.get('/', async (req, res) => {
   const user_id = req.session.user;
-
   
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
 
   try {
     const [rows] = await db.query(`
