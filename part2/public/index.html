@@ -55,7 +55,9 @@
 
           const data = await res.json();
           if (res.ok) {
-            if (data.role)
+            if (data.role == "owner") {
+              
+            }
           } else {
             alert(data.message || 'Login failed');
           }
