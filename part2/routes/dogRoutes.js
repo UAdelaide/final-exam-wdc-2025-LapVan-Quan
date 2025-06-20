@@ -11,8 +11,8 @@ router.get('/', async (req, res) => {
       SELECT d.dog_id, d.name AS dog_name, u.username AS owner_name
       FROM Dogs d JOIN Users u
       ON d.owner_id = u.user_id
-      WHERE wr.status = 'open'
-    `);
+      WHERE u.user_id = ?;
+    `, []);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
