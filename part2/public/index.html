@@ -72,7 +72,7 @@
 
           for (const dog of this.dogs) {
             const photo = await fetch('https://dog.ceo/api/breeds/image/random')
-            dog.photo = await photo.message;
+            dog.photo = await photo.json().message;
           }
         } catch (err) {
           error.value = 'Failed to load dogs';
