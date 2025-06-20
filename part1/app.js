@@ -155,3 +155,10 @@ VALUES
 ('jaden', 'jaden@gmail.com', 'hashed321', 'walker'),
 ('john', 'john@adelaide.com', 'hashed654', 'owner');
 
+INSERT INTO Dogs (owner_id, name, size)
+VALUES
+((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+((SELECT user_id FROM Users WHERE username = 'carol123'), 'Rocky', 'large'),
+((SELECT user_id FROM Users WHERE username = 'john'), 'Milo', 'small'),
+((SELECT user_id FROM Users WHERE username = 'john'), 'Luna', 'medium');
