@@ -116,8 +116,21 @@
           }
         }
 
-        function logout() {
-          
+        async function logout() {
+          try {
+            const res = await fetch('/api/users/logout', {
+              method: 'DELETE',
+              credentials: 'include'
+            });
+
+            if (res.ok) {
+              window.location.href = 'http://localhost:8080';
+            } else {
+              alert('Logout failed');
+            }
+          } catch (err) {
+            console.error('Logout error:', err);
+          }
         }
 
         onMounted(() => {
