@@ -29,6 +29,27 @@
 
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+
+    <h1 class="mb-4">🐶 Dog List</h1>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Dog Name</th>
+          <th>Size</th>
+          <th>Owner</th>
+          <th>Random Photo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(dog, index) in dogs" :key="index">
+          <td>{{ dog.dog_name }}</td>
+          <td>{{ dog.size }}</td>
+          <td>{{ dog.owner_username }}</td>
+          <td><img :src="dog.photo" alt="Dog photo" class="img-thumbnail" style="max-width: 150px;"></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <script>
