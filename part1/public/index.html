@@ -56,6 +56,13 @@
         }
       },
       methods: {
+        load() {
+            fetch('https://dog.ceo/api/breeds/image/random')
+            .then(res => res.json())
+            .then(data => {
+              this.dog_img = data.message;
+            })
+        },
         get_dog() {
           fetch('https://dog.ceo/api/breeds/image/random')
             .then(res => res.json())
